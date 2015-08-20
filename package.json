@@ -4,6 +4,7 @@
   "description": "Automate filling, flushing and replacing of database documents for testing purposes",
   "main": "lib/factory",
   "scripts": {
+    "install": "node link",
     "test": "./node_modules/.bin/mocha"
   },
   "repository": {
