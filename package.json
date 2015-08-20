@@ -1,0 +1,29 @@
+{
+  "name": "mongoose-fixture-factory",
+  "version": "0.0.1",
+  "description": "Automate filling, flushing and replacing of database documents for testing purposes",
+  "main": "lib/factory",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bajix/mongoose-fixture-factory.git"
+  },
+  "author": "Thomas Sieverding (Thomas@bajix.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bajix/mongoose-fixture-factory/issues"
+  },
+  "homepage": "https://github.com/Bajix/mongoose-fixture-factory#readme",
+  "keywords": [
+    "Mongoose",
+    "fixtures",
+    "stub",
+    "data"
+  ],
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  }
+}
