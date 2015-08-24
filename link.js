@@ -1,24 +1,36 @@
-var fs = require('fs'),
-  sources = fs.readdirSync('./lib'),
-  count = 0;
+var path = require('path'),
+  fs = require('fs');
 
-var isHidden = function (path) {
+process.chdir(__dirname);
+
+function isHidden( path ) {
   return (/(^|.\/)\.+[^\/\.]/g).test(path);
 };
 
-for (var i = 0; i < sources.length; i++) {
-  var source = '../lib/' + sources[i],
-    destination = 'node_modules/' + sources[i];
+function symlink( srcPath, destPath ) {
+  var lstat = fs.lstatSync(srcPath),
+    isDir = lstat.isDirectory();
 
-  if (!isHidden(source)) {
-    var exists = fs.existsSync(destination);
-    if (exists) {
-      console.log('>> Destination %s already exists', destination);
-    } else {
-      fs.symlinkSync(source, destination, 'dir');
-      count++;
-    }
+  if (lstat.isSymbolicLink()) {
+    srcPath = fs.realpathSync(srcPath);
+  } else {
+    srcPath = path.resolve(__dirname, srcPath);
   }
-}
 
-console.log('>> Created %d symbolic links.', count);
+  fs.symlinkSync(srcPath, destPath, isDir ? 'dir': 'file');
+};
+
+try {
+  fs.mkdirSync(path.resolve('./node_modules'));
+} catch (e) {}
+
+fs.readdirSync('./lib').forEach(function( source ) {
+  var srcPath = path.resolve('./lib', source),
+    destPath = path.resolve('./node_modules', source);
+
+  if (!isHidden(srcPath)) {
+    try {
+      symlink(srcPath, destPath);
+    } catch (e) {}
+  }
+});
