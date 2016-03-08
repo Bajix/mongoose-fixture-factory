@@ -27,7 +27,7 @@
     "chai": "^3.5.0",
     "config": "^1.19.0",
     "mocha": "^2.4.5",
-    "mongoose": "^4.4.1",
+    "mongoose": "^4.4.6",
     "mongoose-validator": "^1.2.4"
   },
   "dependencies": {
