@@ -1,6 +1,6 @@
 {
   "name": "mongoose-fixture-factory",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Automate filling, flushing and replacing of database documents for testing purposes",
   "main": "lib/factory",
   "scripts": {
