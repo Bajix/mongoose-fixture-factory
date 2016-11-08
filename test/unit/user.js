@@ -1,5 +1,5 @@
-var fixtures = require('fixtures').User,
-  User = require('models').User,
+var fixtures = require('../../lib/fixtures').User,
+  User = require('../../lib/models').User,
   async = require('async');
 
 describe('Users', function() {

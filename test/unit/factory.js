@@ -1,6 +1,6 @@
-var fixtures = require('fixtures').User,
-  User = require('models').User,
-  Factory = require('factory');
+var fixtures = require('../../lib/fixtures').User,
+  User = require('../../lib/models').User,
+  Factory = require('../../lib/factory');
 
 describe('Factory', function() {
   describe('fills', function() {
